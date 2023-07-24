@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Train</title>
+  <style>
+    .model-checkbox {
+      margin-bottom: 10px;
+    }
+    
+    .button-container {
+      text-align: center;
+      margin-top: 20px;
+    }
+    
+    .button {
+      display: inline-block;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+    
+    .button:hover {
+      background-color: #45a049;
+    }
+    
+    .button-container .button {
+      margin: 10 20px;
+    }
+  </style>
+</head>
+<body>
+  <form action="/trainModels" method="post">
+    <fieldset>
+      <legend>Select Models to train</legend>
+      
+      <!-- <div class="model-checkbox">
+        <input type="checkbox" id="LinearRegression" name="models" value="LinearRegressionTrain">
+        <label for="LinearRegression">LinearRegression</label>
+      </div> -->
+      <!-- <div class="model-checkbox">
+        <input type="checkbox" id="knn" name="models" value="KNNTrain">
+        <label for="knn">KNN</label>
+      </div> -->
+      <!-- <div class="model-checkbox">
+        <input type="checkbox" id="svm" name="models" value="SVMTrain">
+        <label for="svm">SVM</label>
+      </div> -->
+      <!-- <div class="model-checkbox">
+        <input type="checkbox" id="lstm" name="models" value="LSTMTrain">
+        <label for="lstm">LSTM</label>
+      </div>
+      <div class="model-checkbox">
+        <input type="checkbox" id="randomForest" name="models" value="RandomForestTrain">
+        <label for="randomForest">Random Forest</label>
+      </div>
+      <div class="model-checkbox">
+        <input type="checkbox" id="gradientBoost" name="models" value="GradientBoostTrain">
+        <label for="gradientBoost">Gradient Boost</label>
+      </div> -->
+      <div class="model-checkbox">
+        <input type="checkbox" id="LSTM" name="models" value="LSTMTrain">
+        <label for="LSTM">LSTM</label>
+      </div>
+      <input type="hidden" name="csvFilePath" value="<%= csvFilePath %>">
+      <input type="submit" value="Run Selected Models" class="button">
+    </fieldset>
+  </form>
+
+
+  <div class="button-container">
+    <form action="/upload-csv" method="POST" enctype="multipart/form-data">
+      <input type="file" id="myFile" name="csvFile">
+      <input type="submit">
+    </form>
+  </div>
+
+<!-- <script>
+  document.querySelector('.button-container form').addEventListener('submit', function(event) {
+      event.preventDefault(); 
+
+      fetch('/upload-csv')
+      .then(response => response.json())
+      .then(data => {
+          const csvFilePath = data.filePath;
+          console.log('CSV file path:', csvFilePath);
+      })
+      .catch(error => {
+          console.error('Error fetching CSV file path:', error);
+      });
+
+      event.target.submit();
+  });
+  </script>
+  <script>
+  document.querySelector('form[action="/upload-csv"]').addEventListener('submit', function(event) {
+      event.preventDefault(); 
+      var formElement = event.target;
+      var formData = new FormData(formElement);
+
+      var startTime = Date.now();
+
+      fetch(formElement.action, {
+      method: 'POST',
+      body: formData,
+      })
+      .then(function(response) {
+          // Stop timer
+          var endTime = Date.now();
+          var timeDiff = endTime - startTime;
+          if (response.ok) {
+          console.log('CSV file uploaded');
+          console.log('Time taken (ms):', timeDiff);
+          } else {
+          console.error('Error uploading CSV file');
+          }
+      })
+      .catch(function(error) {
+          console.error('Error uploading CSV file:', error);
+      });
+  });
+  </script> -->
+  
+</body>
+</html>

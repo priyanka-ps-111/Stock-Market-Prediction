@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Test</title>
+  <style>
+    .model-checkbox {
+      margin-bottom: 10px;
+    }
+    
+    .button-container {
+      text-align: center;
+      margin-top: 20px;
+    }
+    
+    .button {
+      display: inline-block;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #e98112;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+    
+    .button:hover {
+      background-color: #45a049;
+    }
+    
+    .button-container .button {
+      margin: 10 20px;
+    }
+  </style>
+</head>
+<body>
+  <form action="/testModels" method="post">
+    <fieldset>
+      <legend>Select Models to Test</legend>
+      
+      <!-- <div class="model-checkbox">
+        <input type="checkbox" id="LinearRegression" name="models" value="LinearRegressionTest">
+        <label for="LinearRegression">LinearRegression</label>
+      </div> -->
+      <!-- <div class="model-checkbox">
+        <input type="checkbox" id="knn" name="models" value="KNNTest">
+        <label for="knn">KNN</label>
+      </div>
+      <div class="model-checkbox">
+        <input type="checkbox" id="svm" name="models" value="SVMTest">
+        <label for="svm">SVM</label>
+      </div> -->
+      <div class="model-checkbox">
+        <input type="checkbox" id="lstm" name="models" value="LSTMTest">
+        <label for="lstm">LSTM</label>
+      <!-- </div>
+      <div class="model-checkbox">
+        <input type="checkbox" id="randomForest" name="models" value="RandomForestTest">
+        <label for="randomForest">Random Forest</label>
+      </div>
+      <div class="model-checkbox">
+        <input type="checkbox" id="gradientBoost" name="models" value="GradientBoostTest">
+        <label for="gradientBoost">Gradient Boost</label>
+      </div>
+      <div class="model-checkbox">
+        <input type="checkbox" id="xgBoost" name="models" value="XGBoostTest">
+        <label for="xgBoost">XGBoost</label>
+      </div> -->
+      <input type="hidden" name="csvFilePath" value="<%= csvFilePath %>">
+      <input type="submit" value="Run Selected Models" class="button">
+    </fieldset>
+  </form>
+
+
+  <div class="button-container">
+    <form action="/upload-csv" method="POST" enctype="multipart/form-data">
+      <input type="file" id="myFile" name="csvFile">
+      <input type="submit">
+    </form>
+  </div>

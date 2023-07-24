@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Interactive Buttons with CSV Upload</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .button {
+            padding: 20px 20px;
+            background-color: #e37c3b;
+            color: white;
+            border: none;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 18px;
+            margin: 0 25px;
+            cursor: pointer;
+            width: 120px;
+            height: 80px;
+        }
+          
+        h1 {
+            font-size: 64px;
+            font-family: sans-serif;
+        }
+
+        .logo {
+            width: 200px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <img class="logo" src="https://media.licdn.com/dms/image/C560BAQH3_QXt5HsuTA/company-logo_200_200/0/1658998880207?e=2147483647&v=beta&t=nawr32E9vIVEVao9UTyTN1FqEAH38-_hFtRY39h6iic" alt="Logo">
+        <h1>Stock prediction </h1>
+
+        <div class="button-container Bcontainer">
+            <form id="trainForm" action="/train" method="POST">
+                <button class="button" onclick="document.getElementById('trainForm').submit();">Train</button>
+            </form>
+            <!-- <form id="testForm" action="/test" method="POST">
+                <button class="button" onclick="document.getElementById('testForm').submit();">Test</button>
+            </form> -->
+            <form action="/result" method="POST">
+                <button class="button" type="submit">Results</button>
+            </form>
+        </div>
+    </div>
+    </body>
+</html>
